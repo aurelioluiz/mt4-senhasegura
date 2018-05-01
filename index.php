@@ -1,6 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+define('BASE', str_replace('/index.php', '/', $_SERVER['SCRIPT_NAME']));
 
 $controller = 'default';
 $action = 'index';
@@ -14,6 +15,7 @@ if(isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/') {
     $params[] = $uri[$i];
   }
 }
+
 
 require_once('config/connection.php');
 require_once('config/routes.php');

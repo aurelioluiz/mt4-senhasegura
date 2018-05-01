@@ -24,7 +24,7 @@ $controllers = array('default' => ['index']);
 
 if (array_key_exists($controller, $controllers) &&
     in_array($action, $controllers[$controller])) {
-    call($controller, $action);
+  call($controller, $action);
 } else {
   call('default', 'error');
 }
