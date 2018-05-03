@@ -3,28 +3,39 @@
 require_once('app/controllers/controller.php');
 require_once('app/models/model.php');
 
-function call($controller, $action) {
+function call($controller, $action, $params = array()) {
 
+  // Controller
   require_once('app/controllers/' . $controller . '_controller.php');
+  $cls = ucwords($controller) . 'Controller';
 
-  switch($controller) {
-    default:
-      $controller = new DefaultController();
-    break;
-  }
+  if(class_exists($cls)) {
+    $obj = new $cls;
 
-  if(method_exists($controller, $action)) {
-    $controller->_before();
-    $controller->{$action}();
-    $controller->_after();
+    // Model
+    if(isset($obj->model)) {
+      require_once('app/models/' . $obj->model . '.php');
+    }
+
+    // Call action
+    if(method_exists($obj, $action)) {
+      $obj->_before();
+      $obj->{$action}($params);
+      $obj->_after();
+    } else {
+      call('default', 'error');
+    }
   }
 }
 
-$controllers = array('default' => ['index']);
+$controllers = array(
+  'default' => array('index'),
+  'dispositivos' => array('index', 'cadastrar', 'editar', 'excluir')
+);
 
 if (array_key_exists($controller, $controllers) &&
     in_array($action, $controllers[$controller])) {
-  call($controller, $action);
+  call($controller, $action, $params);
 } else {
   call('default', 'error');
 }

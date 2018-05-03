@@ -7,6 +7,7 @@
     <title>Home</title>
 
     <link rel="stylesheet" href="<?php echo BASE . 'assets/css/bootstrap.min.css'; ?>" />
+    <link rel="stylesheet" href="<?php echo BASE . 'assets/css/fontawesome.min.css'; ?>" />
   </head>
   <body>
     <header class="navbar navbar-expand-sm navbar-dark bg-dark">
