@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Home</title>
+    <title>MT4 - senhasegura</title>
 
     <link rel="stylesheet" href="<?php echo BASE . 'assets/css/bootstrap.min.css'; ?>" />
     <link rel="stylesheet" href="<?php echo BASE . 'assets/css/fontawesome.min.css'; ?>" />
@@ -19,6 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarMain">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="<?php echo BASE . 'index.php/dispositivos'; ?>">dispositivos</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo BASE . 'index.php/ssh'; ?>">ssh</a></li>
           </ul>
         </div>
       </div>

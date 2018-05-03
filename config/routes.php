@@ -30,7 +30,8 @@ function call($controller, $action, $params = array()) {
 
 $controllers = array(
   'default' => array('index'),
-  'dispositivos' => array('index', 'cadastrar', 'editar', 'excluir')
+  'dispositivos' => array('index', 'cadastrar', 'editar', 'excluir'),
+  'ssh' => array('index'),
 );
 
 if (array_key_exists($controller, $controllers) &&
