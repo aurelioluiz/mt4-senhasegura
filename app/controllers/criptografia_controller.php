@@ -16,19 +16,23 @@ class CriptografiaController extends Controller {
 
   public function index() {
 
+    $openssl = true;
     $texto_d = !empty($_POST['texto_d']) ? $_POST['texto_d'] : '';
     $texto_c = !empty($_POST['texto_c']) ? $_POST['texto_c'] : '';
 
     if(!empty($_POST)) {
 
       if(!empty($texto_d)) { // Criptografar
-        $cripto = $this->_cesar($texto_d);
-        $cripto = $this->_aes256($cripto);
+        $cripto_c = $this->_cesar($texto_d);
+        $cripto_a = $this->_aes256($texto_d);
       }
       if(!empty($texto_c)) { // Descriptografar
-        $decripto = $this->_de_aes256($texto_c);
-        $decripto = $this->_de_cesar($decripto);
+        $decripto_c = $this->_de_cesar($texto_c);
+        $decripto_a = $this->_de_aes256($texto_c);
       }
+    } elseif(!extension_loaded('openssl')) {
+      $error = 'Extensão OpenSSL não instalada.';
+      $openssl = false;
     }
 
     include('app/views/criptografia/index.php');
