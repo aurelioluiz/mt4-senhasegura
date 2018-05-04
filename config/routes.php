@@ -33,6 +33,7 @@ $controllers = array(
   'dispositivos' => array('index', 'cadastrar', 'editar', 'excluir'),
   'ssh' => array('index'),
   'criptografia' => array('index'),
+  'hash' => array('index'),
 );
 
 if (array_key_exists($controller, $controllers) &&

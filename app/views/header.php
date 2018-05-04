@@ -21,6 +21,7 @@
             <li class="nav-item"><a class="nav-link" href="<?php echo BASE . 'index.php/dispositivos'; ?>">dispositivos</a></li>
             <li class="nav-item"><a class="nav-link" href="<?php echo BASE . 'index.php/ssh'; ?>">ssh</a></li>
             <li class="nav-item"><a class="nav-link" href="<?php echo BASE . 'index.php/criptografia'; ?>">criptografia</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo BASE . 'index.php/hash'; ?>">hashes</a></li>
           </ul>
         </div>
       </div>
